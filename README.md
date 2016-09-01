@@ -73,6 +73,11 @@ vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
 Complete
 --------
 1. 2016-09-01 01:55:52 +0000 -> Learn Ruby -> 2016-09-01 01:57:02 +0000
+```
+
+Go backwards...
+
+```
 vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb -complete 1
 vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
 Backlog
@@ -115,6 +120,11 @@ In Progress
 vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
 Complete
 --------
+```
+
+Add more items...
+
+```
 vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb add "Watch TV"
 vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
 Backlog
