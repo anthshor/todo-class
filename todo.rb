@@ -19,6 +19,7 @@ class TodoItem
   def initialize(desc,start, q=0)
     @desc = desc
     @startDate = start
+    @endDate = nil
     case q
       when 1; @@ready.push(self)
       when 2; @@inProgress.push(self)
@@ -31,11 +32,16 @@ class TodoItem
   def to_s
     "#{@desc}; #{@startDate} "
   end
+  
+  def enddate
+    @endDate=Time.now
+  end
  
   def [](index)
     case index
     when 0; @desc
     when 1; @startDate
+    when 2; @endDate
     else
       nil
     end
@@ -90,7 +96,10 @@ class TodoItem
     case queue
     when 'backlog'; unless @@backlog[@index].nil? then @@ready.push(@@backlog[@index]); @@backlog.delete_at(@index); end;
     when 'ready'; unless @@ready[@index].nil? then @@inProgress.push(@@ready[@index]); @@ready.delete_at(@index); end
-    when 'inprogress'; unless @@inProgress[@index].nil? then @@complete.push(@@inProgress[@index]); @@inProgress.delete_at(@index); end
+    when 'inprogress'; unless @@inProgress[@index].nil? then
+        @@inProgress[@index].enddate;
+        @@complete.push(@@inProgress[@index]); @@inProgress.delete_at(@index); 
+      end
     else
       nil
     end
