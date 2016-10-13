@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/local/bin/ruby
  
 require 'yaml'
  
@@ -72,7 +72,7 @@ class TodoItem
        puts "Complete"
        puts "--------"
        for i in 0..@@complete.length-1
-         puts "#{i+1}. #{@@complete[i][1]} -> #{@@complete[i][0]} -> #{@@complete[i][2]}"
+         puts "#{i+1}. #{@@complete[i][2]} : #{@@complete[i][0]} (#{@@complete[i][2]})"
        end
      else
        nil
