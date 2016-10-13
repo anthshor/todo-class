@@ -17,58 +17,118 @@ list | ready | progress | complete | -ready | -progress | -complete
 
 ###Example run
 ```
-$ ./todo.rb add "Learn Ruby"
-$ ./todo.rb list 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb add "Learn Ruby"
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
 Backlog
 -------
 1. Learn Ruby
-$ ./todo.rb list 2
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 2
 Ready
 -----
-$ ./todo.rb list 3
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 3
 In Progress
 -----------
-$ ./todo.rb list 4
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
 Complete
 --------
-$ ./todo.rb ready 1
-$ ./todo.rb list 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb ready 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
 Backlog
 -------
-$ ./todo.rb list 2
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 2
 Ready
 -----
 1. Learn Ruby
-$ ./todo.rb progress 1
-$ ./todo.rb list 3
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 3
+In Progress
+-----------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
+Complete
+--------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb progress 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
+Backlog
+-------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 2
+Ready
+-----
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 3
 In Progress
 -----------
 1. Learn Ruby
-$ ./todo.rb complete 1
-$ ./todo.rb list 4
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
 Complete
 --------
-1. Learn Ruby
-$ ./todo.rb -complete 1
-$ ./todo.rb -progress 1
-$ ./todo.rb list 2
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb complete 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
+Backlog
+-------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 2
 Ready
 -----
-1. Learn Ruby
-$ ./todo.rb list 6
-$ ./todo.rb list 2
-Ready
------
-1. Learn Ruby
-$ ./todo.rb complete 1
-$ ./todo.rb list 2
-Ready
------
-1. Learn Ruby
-$ ./todo.rb list 3
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 3
 In Progress
 -----------
-$ ./todo.rb list 4
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
 Complete
 --------
-``
+1. 2016-09-01 01:55:52 +0000 -> Learn Ruby -> 2016-09-01 01:57:02 +0000
+```
+
+Go backwards...
+
+```
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb -complete 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
+Backlog
+-------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 2
+Ready
+-----
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 3
+In Progress
+-----------
+1. Learn Ruby
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
+Complete
+--------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb -progress 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
+Backlog
+-------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 2
+Ready
+-----
+1. Learn Ruby
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 3
+In Progress
+-----------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
+Complete
+--------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb -ready 1
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
+Backlog
+-------
+1. Learn Ruby
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 2
+Ready
+-----
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 3
+In Progress
+-----------
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 4
+Complete
+--------
+```
+
+Add more items...
+
+```
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb add "Watch TV"
+vagrant@rubyvm:/vagrant/todo-class$ ./todo.rb list 1
+Backlog
+-------
+1. Learn Ruby
+2. Watch TV
+```
